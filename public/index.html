@@ -1,11 +1,19 @@
 <!DOCTYPE>
 <html>
   <head>
-    <title>AirFeC</title>
     <meta charset="UTF-8">
+    <title>AirFeC</title>
   </head>
   <body>
-    <div id="airFeC"></div>
-    <script type="text/javascript" src="bundle.js"></script>
+    <div id="reviewIndex"></div>
+    <script src="/lib/react.development.js"></script>
+    <script src="/lib/react-dom.development.js"></script>
+    <script src="http://localhost:3001"></script> 
+    <script>
+      ReactDOM.render(
+        React.createElement(Reviews),
+        document.getElementById('reviewsIndex')
+      );
+    </script>
   </body>
 </html>
