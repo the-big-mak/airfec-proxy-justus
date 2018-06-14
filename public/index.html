@@ -5,15 +5,11 @@
     <title>AirFeC</title>
   </head>
   <body>
+    <div id="appPhotos"></div>
+    <div id="appReservations"</div></div>
     <div id="reviewIndex"></div>
-    <script src="/lib/react.development.js"></script>
-    <script src="/lib/react-dom.development.js"></script>
-    <script src="http://localhost:3001"></script> 
-    <script>
-      ReactDOM.render(
-        React.createElement(Reviews),
-        document.getElementById('reviewsIndex')
-      );
-    </script>
+    <script src="http://localhost:3001/rooms/:id/reviewBundle.js"></script> 
+    <script src="http://localhost:3004/rooms/:id/bundleReservations.js"></script> 
+    <script src="http://localhost:3003/rooms/:id/bundlePhotos.js"></script> 
   </body>
 </html>

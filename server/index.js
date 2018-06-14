@@ -1,26 +1,43 @@
 const express = require('express');
 const path = require('path');
+//const helper = require('./helpers');
+const cors = require('cors');
 const axios = require('axios');
 
 const app = express();
 const port = 3000;
 
-app.use(express.static(path.join(__dirname, '../public')));
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  next();
+});
 
-app.get('/rooms/:id', (req, res) => {
-  axios.get('http://localhost:3001/rooms/:id/reviewBundle.js', {
+app.use('/rooms/:id', express.static(path.join(__dirname, '../public')));
+
+
+//app.get('/reviews', helper.getService);
+
+app.get('/reviews', (req, res) => {
+  axios.get('http://localhost:3001/reviews', {
     params: {
-      ID: 5,
+      ID: req.query.ID,
     }
   })
-    .then((response) => {
-      console.log('got response in proxy', response.data)
-      //const data = JSON.parse(response.data);
-      res.send(response.data);
-    })
+    .then((response) => res.send(response.data))
     .catch(error => console.error('no response in proxy', error))
+});
+
+app.get('/Photos/:id', (req, res) => {
+  res.redirect(`http://localhost:3003/Photos/${req.params.id}`);
+});
+
+app.get('reservations/:id', (req, res) => {
+  res.redirect(`http://localhost:3004/Photos/${req.params.id}`);
 });
 
 app.listen(port, () => {
   console.log('app is listening on', port);
-})
+});
