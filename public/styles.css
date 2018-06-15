@@ -12,6 +12,12 @@
   width: 100%;
 }
 
+#overview {
+  max-width: 648px;
+  position: relative;
+  left: 140px;
+}
+
 #appReservations * {
   box-sizing: border-box;
 }
