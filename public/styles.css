@@ -1,0 +1,27 @@
+#appPhotos {
+  height: auto;
+  width: auto;
+}
+
+#container {
+  margin-right: 200px;
+  margin-left: 200px;
+}
+ #appReservations {
+  width: 100%;
+}
+
+#overview {
+  margin-top: 24px;
+  max-width: 648px;
+  position: relative;
+  left: 140px;
+}
+
+#appReservations * {
+  box-sizing: border-box;
+}
+
+#reviewIndex {
+  margin-left: 10%;
+} 
